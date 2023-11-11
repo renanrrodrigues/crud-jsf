@@ -1,15 +1,67 @@
-package produto;
+package gerardados;
 
-import com.crud.domain.model.entity.Categoria;
-import com.crud.domain.model.entity.Produto;
+import com.crud.domain.model.entity.*;
 import com.crud.infrastructure.repository.generic.GenericRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class GeraDados {
 
-public class NovoProduto {
-    public static void main(String[] args) {
+    private static void gerarRua() {
+        GenericRepository<Rua> genericRepository = new GenericRepository<>(Rua.class);
+
+        try
+        {
+            for (int i = 1; i <= 6; i++) {
+                Rua rua = new Rua();
+                rua.setNome("A-"+String.valueOf(i));
+                genericRepository.incluirAtomico(rua);
+            }
+        }
+        finally
+        {
+            genericRepository.fechar();
+        }
+    }
+
+    private static void gerarColuna() {
+        GenericRepository<Coluna> genericRepository = new GenericRepository<>(Coluna.class);
+
+        try{
+            for (int i = 1; i <= 6; i++) {
+                Rua rua = new Rua();
+                rua.setId(i);
+                for (int j = 1; j <= 5; j++) {
+                    Coluna coluna = new Coluna();
+                    coluna.setRua(rua);
+                    genericRepository.incluirAtomico(coluna);
+                }
+            }
+        }finally {
+            genericRepository.fechar();
+        }
+    }
+
+    private static void gerarNivel() {
+        GenericRepository<Nivel> genericRepository = new GenericRepository<>(Nivel.class);
+
+        try{
+            for (int i = 1; i <= 30; i++) {
+                Coluna coluna = new Coluna();
+                coluna.setId(i);
+                for (int j = 1; j <= 4; j++) {
+                    Nivel nivel = new Nivel();
+                    nivel.setColuna(coluna);
+                    genericRepository.incluirAtomico(nivel);
+                }
+            }
+        }finally {
+            genericRepository.fechar();
+        }
+    }
+
+    public static void gerarCategoriasEProdutos() {
         GenericRepository<Object> genericRepository = new GenericRepository<>(Object.class);
 
         List<Categoria> categorias = new ArrayList<>();
@@ -59,5 +111,12 @@ public class NovoProduto {
         }finally {
             genericRepository.fechar();
         }
+    }
+
+    public static void main(String[] args) {
+        gerarRua();
+        gerarColuna();
+        gerarNivel();
+        gerarCategoriasEProdutos();
     }
 }

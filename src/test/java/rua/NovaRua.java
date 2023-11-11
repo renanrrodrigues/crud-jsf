@@ -8,15 +8,17 @@ public class NovaRua {
 
         GenericRepository<Rua> genericRepository = new GenericRepository<>(Rua.class);
 
-        /*Rua rua = new Rua();
-        rua.setNome("4");
-        genericRepository.incluirAtomico(rua);
-        genericRepository.fechar();*/
-
-        for (int i = 1; i <= 6; i++) {
-            Rua rua = new Rua();
-            rua.setNome("A-"+String.valueOf(i));
-            genericRepository.incluirAtomico(rua);
+        try
+        {
+            for (int i = 1; i <= 6; i++) {
+                Rua rua = new Rua();
+                rua.setNome("A-"+String.valueOf(i));
+                genericRepository.incluirAtomico(rua);
+            }
+        }
+        finally
+        {
+            genericRepository.fechar();
         }
 
     }

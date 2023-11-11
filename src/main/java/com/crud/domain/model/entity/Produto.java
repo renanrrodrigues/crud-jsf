@@ -2,6 +2,8 @@ package com.crud.domain.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "produto")
 public class Produto {
@@ -13,32 +15,20 @@ public class Produto {
     @Column(nullable = false, length = 200)
     private String nome;
 
-    @Column(nullable = false)
-    private int quantidade;
 
     // fk de categoria
     @ManyToOne // muitos produtos para uma categoria
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 
-    @OneToOne
-    @JoinColumn(name = "nivel_id")
-    private Nivel nivel;
 
     public Produto() {
     }
 
-    public Produto(String nome, int quantidade, Categoria categoria) {
-        this.nome = nome;
-        this.quantidade = quantidade;
-        this.categoria = categoria;
-    }
 
-    public Produto(String nome, int quantidade, Categoria categoria, Nivel nivel) {
+    public Produto(String nome, Categoria categoria) {
         this.nome = nome;
-        this.quantidade = quantidade;
         this.categoria = categoria;
-        this.nivel = nivel;
     }
 
     public Categoria getCategoria() {
@@ -65,19 +55,6 @@ public class Produto {
         this.nome = nome;
     }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
 
-    public Nivel getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(Nivel nivel) {
-        this.nivel = nivel;
-    }
 }

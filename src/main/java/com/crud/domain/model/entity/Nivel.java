@@ -2,6 +2,8 @@ package com.crud.domain.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "nivel")
 public class Nivel {
@@ -15,12 +17,17 @@ public class Nivel {
     @JoinColumn(name = "coluna_id")
     private Coluna coluna;
 
-    @OneToOne(mappedBy = "nivel")
-    private Produto produto;
+    @OneToMany(mappedBy = "nivel")
+    private List<EstoqueItem> estoqueItens;
 
+
+    public Nivel(Coluna coluna) {
+        this.coluna = coluna;
+    }
 
     public Nivel() {
     }
+
 
     public long getId() {
         return id;
@@ -38,13 +45,11 @@ public class Nivel {
         this.coluna = coluna;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public List<EstoqueItem> getEstoqueItens() {
+        return estoqueItens;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setEstoqueItens(List<EstoqueItem> estoqueItens) {
+        this.estoqueItens = estoqueItens;
     }
-
-
 }
