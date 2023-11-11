@@ -6,7 +6,7 @@ import jakarta.persistence.Persistence;
 
 public class ManagerFactory {
     private static EntityManagerFactory emf;
-    private EntityManager em;
+    private static EntityManager em;
 
     static { //  toda vez que a classe for carregada, o bloco static será executado
         // isso ocorre quando iniciamos a aplicação
@@ -19,7 +19,7 @@ public class ManagerFactory {
         }
     }
 
-    public EntityManager getEntityManager() {
+    public static EntityManager getEntityManager() {
         try {
             em = emf.createEntityManager();
             return em;
@@ -29,5 +29,14 @@ public class ManagerFactory {
             return null;
         }
 
+    }
+
+    public static void close() {
+        if (em != null) {
+            em.close();
+        }
+        if (emf != null) {
+            emf.close();
+        }
     }
 }

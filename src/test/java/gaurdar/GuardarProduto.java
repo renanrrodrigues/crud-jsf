@@ -10,16 +10,16 @@ public class GuardarProduto {
     public static void main(String[] args) {
         GenericRepository<EstoqueItem> genericRepository = new GenericRepository<>(EstoqueItem.class);
         Nivel nivel = new Nivel();
-        nivel.setId(2L);
+        nivel.setId(51L);
 
         Produto produto = new Produto();
-        produto.setId(1L);
+        produto.setId(10L);
 
         try{
             EstoqueItem estoqueItem = new EstoqueItem();
             estoqueItem.setNivel(nivel);
             estoqueItem.setProduto(produto);
-            estoqueItem.setQuantidade(50L);
+            estoqueItem.setQuantidade(25L);
             genericRepository.incluirAtomico(estoqueItem);
         }finally {
             genericRepository.fechar();
