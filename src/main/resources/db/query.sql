@@ -1,19 +1,21 @@
 create database db_jpa;
 
+drop table if exists nivel;
+drop table if exists coluna;
+drop table if exists rua;
+drop table if exists produto;
+drop table if exists categoria;
+
+
+
+
 select * from rua;
 select * from coluna;
 select * from nivel;
-select * from sequencia;
 select * from categoria;
 select * from produto;
 
 insert into rua (id, nome) values (1, 'Rua 1A');
-
-insert into coluna (id, rua_id) values (1, 1);
-
-insert into nivel (id, coluna_id, rua_id) values (1, 1, 1);
-
-insert into sequencia (id, coluna_id, nivel_id, rua_id) values (1, 1, 1, 1);
 
 insert into categoria (id, nome) values (1, 'Categoria 1');
 

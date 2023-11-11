@@ -6,25 +6,20 @@ import jakarta.persistence.*;
 @Table(name = "nivel")
 public class Nivel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // fk de Rua
-    @ManyToOne // muitos níveis para uma rua
-    @JoinColumn(name = "rua_id")
-    private Rua rua;
 
     // fk de Coluna
     @ManyToOne // muitos níveis para uma coluna
     @JoinColumn(name = "coluna_id")
     private Coluna coluna;
 
-    public Nivel() {
-    }
+    @OneToOne(mappedBy = "nivel")
+    private Produto produto;
 
-    public Nivel(Rua rua, Coluna coluna) {
-        this.rua = rua;
-        this.coluna = coluna;
+
+    public Nivel() {
     }
 
     public long getId() {
@@ -35,14 +30,6 @@ public class Nivel {
         this.id = id;
     }
 
-    public Rua getRua() {
-        return rua;
-    }
-
-    public void setRua(Rua rua) {
-        this.rua = rua;
-    }
-
     public Coluna getColuna() {
         return coluna;
     }
@@ -50,4 +37,14 @@ public class Nivel {
     public void setColuna(Coluna coluna) {
         this.coluna = coluna;
     }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+
 }
