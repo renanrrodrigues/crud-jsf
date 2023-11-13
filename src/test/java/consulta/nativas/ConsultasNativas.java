@@ -1,4 +1,4 @@
-package consulta;
+package consulta.nativas;
 
 import com.crud.domain.model.entity.Produto;
 import com.crud.infrastructure.factory.ManagerFactory;
@@ -17,9 +17,10 @@ public class ConsultasNativas {
         EntityManager entityManager = ManagerFactory.getEntityManager();
 
         consultarSimplesMapeandoParaEntidade(entityManager);
-        mapeandoResultado(entityManager);
+        //mapeandoResultado(entityManager);
 
-        ManagerFactory.close();
+        ManagerFactory.emClose(); // fechando o Entity Manager (gerenciador de entidades)
+        ManagerFactory.emfClose(); // fechando o Entity Manager Factory (fábrica de Entity Manager)
     }
 
 
@@ -61,7 +62,7 @@ public class ConsultasNativas {
                         "id as id_p, " +
                         "nome as name, " +
                         "categoria_id id_categoria " +
-                        "FROM tb_produto2", ProdutoDTO.class);
+                        "FROM tb_produto2", Produto.class);
 
         List<Produto> produtos = query.getResultList();
 

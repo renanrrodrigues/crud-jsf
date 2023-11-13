@@ -17,6 +17,9 @@ public class Coluna {
     private Rua rua;
 
     @OneToMany(mappedBy = "coluna", fetch = FetchType.LAZY) // Uma coluna para muitos níveis
+    /*
+    * mappedBy = "coluna" -> nome do atributo na classe Nivel que faz o mapeamento com a classe Coluna
+    * */
     private List<Nivel> niveis;
 
     public Coluna() {

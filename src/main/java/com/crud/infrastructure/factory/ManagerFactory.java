@@ -31,12 +31,11 @@ public class ManagerFactory {
 
     }
 
-    public static void close() {
-        if (em != null) {
-            em.close();
-        }
-        if (emf != null) {
-            emf.close();
-        }
+    public static void emfClose() {
+        emf.close();
+    }
+
+    public static void emClose() {
+        em.close();
     }
 }
