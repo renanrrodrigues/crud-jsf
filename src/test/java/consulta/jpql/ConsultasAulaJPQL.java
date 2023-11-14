@@ -2,6 +2,7 @@ package consulta.jpql;
 
 import com.crud.domain.model.entity.aulajpql.Dominio;
 import com.crud.domain.model.entity.aulajpql.Usuario;
+import com.crud.dto.NivelProdutoDTO;
 import com.crud.dto.UsuarioDTO;
 import com.crud.infrastructure.factory.ManagerFactory;
 import jakarta.persistence.EntityManager;
@@ -19,7 +20,8 @@ public class ConsultasAulaJPQL {
         //primeirasConsultas(entityManager);
         //escolhendoORetorno(entityManager);
         //fazendoProjecoes(entityManager);
-        passandoParametros(entityManager);
+        //passandoParametros(entityManager);
+        fazendoProjecoesNivelProduto(entityManager);
 
         ManagerFactory.emClose(); // fechando o Entity Manager (gerenciador de entidades)
         ManagerFactory.emfClose(); // fechando o Entity Manager Factory (fábrica de Entity Manager)
@@ -47,6 +49,22 @@ public class ConsultasAulaJPQL {
                 setParameter("loginUsuario", "ria"); // passando o parâmetro (parecido com o PreparedStatement)
         Usuario usuarioLog = typedQueryLog.getSingleResult();
         System.out.println(usuarioLog.getId() + ", " + usuarioLog.getNome());
+
+    }
+
+    public static void fazendoProjecoesNivelProduto(EntityManager entityManager) {
+
+
+        String jpqlDto = "SELECT new com.crud.dto.NivelProdutoDTO(n.id, ei.quantidade, p.id, p.nome) " +
+                "FROM Nivel n " +
+                "JOIN n.estoqueItens ei " +
+                "JOIN ei.produto p " +
+                "WHERE n.coluna.rua.nome = :ruaNome";
+
+        TypedQuery<NivelProdutoDTO> typedQueryDto = entityManager.createQuery(jpqlDto, NivelProdutoDTO.class)
+                .setParameter("ruaNome", "A-1");
+        List<NivelProdutoDTO> listaDto = typedQueryDto.getResultList();
+
 
     }
 

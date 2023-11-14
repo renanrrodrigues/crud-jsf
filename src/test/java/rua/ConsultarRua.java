@@ -1,8 +1,7 @@
 package rua;
 
-import com.crud.domain.model.entity.Coluna;
 import com.crud.domain.model.entity.Rua;
-import com.crud.infrastructure.repository.generic.GenericRepository;
+import com.crud.infrastructure.repository.GenericRepository;
 
 public class ConsultarRua {
     public static void main(String[] args) {

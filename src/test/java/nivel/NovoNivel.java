@@ -2,9 +2,7 @@ package nivel;
 
 import com.crud.domain.model.entity.Coluna;
 import com.crud.domain.model.entity.Nivel;
-import com.crud.domain.model.entity.Rua;
-import com.crud.infrastructure.repository.generic.GenericRepository;
-import jakarta.persistence.GeneratedValue;
+import com.crud.infrastructure.repository.GenericRepository;
 
 public class NovoNivel {
     public static void main(String[] args) {

@@ -2,7 +2,7 @@ package produto;
 
 import com.crud.domain.model.entity.Categoria;
 import com.crud.domain.model.entity.Produto;
-import com.crud.infrastructure.repository.generic.GenericRepository;
+import com.crud.infrastructure.repository.GenericRepository;
 
 import java.util.ArrayList;
 import java.util.List;

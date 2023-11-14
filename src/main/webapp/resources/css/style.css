@@ -1,0 +1,58 @@
+.menu {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: inline-block;
+}
+
+.menu-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.menu-rua {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.botao {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #a4aef5;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #de2d2d;
+    color: #000;
+}
+
+.botao.ativo {
+    background-color: #000;
+    color: #00f51f;
+}
+
+
+/* style.css */
+.link-style {
+    color: #3498db; /* Cor do texto - azul */
+    text-decoration: none; /* Remover sublinhado padrão */
+    font-weight: bold; /* Texto em negrito */
+    padding: 5px 10px; /* Espaçamento interno */
+    background-color: #ecf0f1; /* Cor de fundo */
+    border: 1px solid #bdc3c7; /* Borda */
+    border-radius: 5px; /* Borda arredondada */
+    transition: background-color 0.3s, color 0.3s; /* Transição suave de cores */
+}
+
+.link-style:hover {
+    background-color: #2980b9; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+}
+
+

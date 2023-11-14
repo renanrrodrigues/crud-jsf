@@ -1,4 +1,4 @@
-package com.crud.infrastructure.repository.generic;
+package com.crud.infrastructure.repository;
 
 import com.crud.infrastructure.factory.ManagerFactory;
 import jakarta.persistence.EntityManager;

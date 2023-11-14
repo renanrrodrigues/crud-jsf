@@ -1,8 +1,7 @@
 package consulta;
 
 import com.crud.domain.model.entity.EstoqueItem;
-import com.crud.domain.model.entity.Produto;
-import com.crud.infrastructure.repository.generic.GenericRepository;
+import com.crud.infrastructure.repository.GenericRepository;
 
 public class LocalProduto {
     public static void main(String[] args) {

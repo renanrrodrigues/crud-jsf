@@ -31,6 +31,7 @@ public class Produto {
         this.categoria = categoria;
     }
 
+
     public Categoria getCategoria() {
         return categoria;
     }
@@ -38,6 +39,7 @@ public class Produto {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
 
     public long getId() {
         return id;

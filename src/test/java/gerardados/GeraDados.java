@@ -1,7 +1,7 @@
 package gerardados;
 
 import com.crud.domain.model.entity.*;
-import com.crud.infrastructure.repository.generic.GenericRepository;
+import com.crud.infrastructure.repository.GenericRepository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,10 +2,7 @@ package consulta.nativas;
 
 import com.crud.domain.model.entity.Produto;
 import com.crud.infrastructure.factory.ManagerFactory;
-import com.crud.infrastructure.repository.generic.GenericRepository;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Query;
 
 import java.util.List;

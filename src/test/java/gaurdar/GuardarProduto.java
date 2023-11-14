@@ -1,10 +1,9 @@
 package gaurdar;
 
-import com.crud.domain.model.entity.Categoria;
 import com.crud.domain.model.entity.EstoqueItem;
 import com.crud.domain.model.entity.Nivel;
 import com.crud.domain.model.entity.Produto;
-import com.crud.infrastructure.repository.generic.GenericRepository;
+import com.crud.infrastructure.repository.GenericRepository;
 
 public class GuardarProduto {
     public static void main(String[] args) {
@@ -20,6 +19,7 @@ public class GuardarProduto {
             estoqueItem.setNivel(nivel);
             estoqueItem.setProduto(produto);
             estoqueItem.setQuantidade(25L);
+
             genericRepository.incluirAtomico(estoqueItem);
         }finally {
             genericRepository.fechar();

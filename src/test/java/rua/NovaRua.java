@@ -1,7 +1,7 @@
 package rua;
 
 import com.crud.domain.model.entity.Rua;
-import com.crud.infrastructure.repository.generic.GenericRepository;
+import com.crud.infrastructure.repository.GenericRepository;
 
 public class NovaRua {
     public static void main(String[] args) {
